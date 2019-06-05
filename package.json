@@ -1,9 +1,10 @@
 {
-  "name": "primera_entrega",
-  "version": "1.0.0",
+  "name": "1_web",
+  "version": "1.1.0",
   "description": "Primera Entreca Curso Node.js",
   "main": "inscribir.js",
   "dependencies": {
+    "express": "^4.17.1",
     "yargs": "^13.2.4"
   },
   "devDependencies": {},
@@ -11,5 +12,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Carlos Herrera herrerarestrepo@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CAHerreraR/Primera_Entrega_Curso_NodeJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CAHerreraR/Primera_Entrega_Curso_NodeJS/issues"
+  },
+  "homepage": "https://github.com/CAHerreraR/Primera_Entrega_Curso_NodeJS#readme"
 }

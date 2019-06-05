@@ -1,5 +1,7 @@
 const principal = require('./principal');
 const fs = require('fs');
+const express = require('express');
+const app = express();
 
 const argv = require('yargs')
     .command('inscripcion', 'Inscribir Aspirante', principal.OPCIONES)
@@ -21,7 +23,7 @@ let inicio = (callBack) => {
 
         setTimeout(() => {
             console.log('\nPara Inscribirse en un curso, por favor digite:' +
-                'la palabra inscripcion seguido de -id=(Identificador del Curso) -nom=(Nombre) -ced=(Número de Cedula)');
+                'la pa labra inscripcion seguido de -id=(Identificador del Curso) -nom=(Nombre) -ced=(Número de Cedula)');
         }, 8000);
 
 
@@ -33,7 +35,7 @@ inicio(function() {
     let curso = principal.cursos.find(infcurso => infcurso.id == argv.i);
 
     if (curso) {
-        let text =
+        text =
             'Finalizo con exito la inscripción al curso:' +
             '-Nombre del Aspirante: ' + argv.nom +
             '\nCedula del Aspirante: ' + argv.ced +
@@ -42,10 +44,17 @@ inicio(function() {
             '\nDuración del Curso: ' + curso.duracion +
             '\nValor: $' + curso.valor;
 
-        fs.writeFile('Comprobante_Inscripción.txt', text, (error) => {
-            if (error) throw (error)
-            console.log(text)
+        /*  fs.writeFile('Comprobante_Inscripción.txt', text, (error) => {
+             if (error) throw (error)
+             console.log(text)
+         }) */
+
+
+        app.get('/', function(req, res) {
+            res.send(text)
         })
+
+        app.listen(3000)
         return;
     } else if (argv._[0] == 'inscripcion') {
         console.log('El curso: ' + argv.id + ' No existe');

@@ -32,7 +32,8 @@ const OPCIONES = {
     identificador_curso: {
 
         default: 0,
-        alias: 'id'
+        alias: 'id',
+
 
     },
     Nombre_interesado: {
